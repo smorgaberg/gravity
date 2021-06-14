@@ -32,9 +32,6 @@ const speedDash = document.querySelector('.speedDash');
 
 
 
-
-
-
             function setupBadGuys(num){
                 for(let x =0; x<num; x++)
                 {
@@ -91,7 +88,7 @@ const speedDash = document.querySelector('.speedDash');
                 gamePlay = true;
                 animationGame = requestAnimationFrame(playGame);
                 player ={
-                    ele:div,
+                    ele:div, 
                     speed:0, //스피드
                     lives:10, //생명
                     gameScore:0,
@@ -144,9 +141,9 @@ const speedDash = document.querySelector('.speedDash');
                 //가속도에 변화가 발생 할때 
                 if(window.DeviceMotionEvent){
                     window.addEventListener('devicemotion', function(event){
-                        var x = event.accelerationIncludingGravity.x;
-                        var y = event.accelerationIncludingGravity.y;
-                        var z = event.accelerationIncludingGravity.z;
+                        var a = event.accelerationIncludingGravity.x;
+                        var b = event.accelerationIncludingGravity.y;
+                        var c = event.accelerationIncludingGravity.z;
                         //var r = event.accelerationIncludingGravity.r;
                       
                     
@@ -287,21 +284,21 @@ const speedDash = document.querySelector('.speedDash');
                 //movement
                 let roadPara=moveRoad();
                 moveBadGuys();
-                if(y>1)
+                if(b>1)
                 {   if(player.ele.y>400)
                     player.ele.y -=  1;
                     player.speed = player.speed <20 ? (player.speed+0.05):20;
                 }
-                if(y<-1)
+                if(b<-1)
                 {   if(player.ele.y<500)
                     {player.ele.y +=  1;}
                     player.speed = player.speed>0?(player.speed-0.2):0;
                 }
-                if(x>3)
+                if(a>3)
                 {
                     player.ele.x += (player.speed/4);
                 }
-                if(x<-3)
+                if(a<-3)
                 {
                     player.ele.x -= (player.speed/4);
                 }
