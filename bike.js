@@ -295,7 +295,7 @@ const speedDash = document.querySelector('.speedDash');
                             beta +90;
                             gamma +90;
         
-                            ball.style.top = (maxX*beta/180 + 100) + "px";
+                            player.ele.style.top = (maxX*beta/180 + 100) + "px";
                             player.ele.style.left = (maxY*gamma/180 + 100) + "px";
                             
                         }, false);
