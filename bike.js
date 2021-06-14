@@ -269,7 +269,7 @@ const speedDash = document.querySelector('.speedDash');
                         let roadPara=moveRoad();
                         moveBadGuys();
                         
-                    {  if(player.ele.y>400)
+                      if(player.ele.y>400)
                             player.ele.y -=  1;
                             player.speed = player.speed <20 ? (player.speed+0.05):20;
                         
@@ -293,8 +293,7 @@ const speedDash = document.querySelector('.speedDash');
                         }
                     
                         //move car
-                        player.ele.style.top = player.ele.y+'px';
-                        player.ele.style.left = player.ele.x+'px';
+                        
                         }
                         animationGame = requestAnimationFrame(playGame);
                         if(player.gameEndCounter>0)
@@ -325,4 +324,4 @@ const speedDash = document.querySelector('.speedDash');
                 
 
             }
-            }   
+            
