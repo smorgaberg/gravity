@@ -236,7 +236,7 @@ const speedDash = document.querySelector('.speedDash');
                             beta +90;
                             gamma +90;
         
-                            
+                            player.ele.style.top = (maxX*beta/180 + 100) + "px";
                             player.ele.style.left = (maxY*gamma/180 + 100) + "px";
                             
                         }, false);
@@ -268,20 +268,21 @@ const speedDash = document.querySelector('.speedDash');
                         //movement
                         let roadPara=moveRoad();
                         moveBadGuys();
-                        
-                      if(player.ele.y>400)
+                        if(y>0)
+                        {   if(player.ele.y>400)
                             player.ele.y -=  1;
                             player.speed = player.speed <20 ? (player.speed+0.05):20;
-                        
-                         if(player.ele.y<500)
+                        }
+                        if(y<0)
+                        {   if(player.ele.y<500)
                             {player.ele.y +=  1;}
                             player.speed = player.speed>0?(player.speed-0.2):0;
-                        
-                        if(x>5)
+                        }
+                        if(kx>0)
                         {
                             player.ele.x += (player.speed/4);
                         }
-                        if(x<-5)
+                        if(kx<0)
                         {
                             player.ele.x -= (player.speed/4);
                         }
@@ -293,7 +294,8 @@ const speedDash = document.querySelector('.speedDash');
                         }
                     
                         //move car
-                        
+                        player.ele.style.top = player.ele.y+'px';
+                        player.ele.style.left = player.ele.x+'px';
                         }
                         animationGame = requestAnimationFrame(playGame);
                         if(player.gameEndCounter>0)
@@ -323,5 +325,5 @@ const speedDash = document.querySelector('.speedDash');
                 }
                 
 
+
             }
-            
