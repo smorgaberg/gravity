@@ -202,66 +202,7 @@ const speedDash = document.querySelector('.speedDash');
                 player.speed =0;
             }
             
-            function playGame(){
-                
-                if(gamePlay){
-                updateDash();
-                //movement
-                let roadPara=moveRoad();
-                moveBadGuys();
-                if(keys.ArrowUp)
-                {   if(player.ele.y>400)
-                    player.ele.y -=  1;
-                    player.speed = player.speed <20 ? (player.speed+0.05):20;
-                }
-                if(keys.ArrowDown)
-                {   if(player.ele.y<500)
-                    {player.ele.y +=  1;}
-                    player.speed = player.speed>0?(player.speed-0.2):0;
-                }
-                if(keys.ArrowRight)
-                {
-                    player.ele.x += (player.speed/4);
-                }
-                if(keys.ArrowLeft)
-                {
-                    player.ele.x -= (player.speed/4);
-                }
-            //CHECK IF ON ROAD
-                if((player.ele.x + 40)<roadPara.left || (player.ele.x)>(roadPara.left + roadPara.width))
-                {   if(player.ele.y <500)player.ele.y += +1;
-                    player.speed = player.speed >0?(player.speed-0.2):5;
-                    //console.log('OFF ROAD');
-                }
-            
-                //move car
-                player.ele.style.top = player.ele.y+'px';
-                player.ele.style.left = player.ele.x+'px';
-                }
-                animationGame = requestAnimationFrame(playGame);
-                if(player.gameEndCounter>0)
-                {
-                    player.gameEndCounter--;
-                    player.y = (player.y >60)?player.y-30:60;
-                    if(player.gameEndCounter ==0)
-                    {
-                        gamePlay = false;
-                        if(player.lives<1)
-                        {
-                        let losediv = document.createElement('div');
-                        losediv.setAttribute('class','road');
-                        losediv.style.top = '500px';
-                        losediv.style.backgroundColor ='red';
-                        losediv.style.width = '250px';
-                        losediv.innerHTML = 'You Lose!';
-                        losediv.style.fontSize = '3em';
-                        losediv.style.zIndex = '120';
-                        container.appendChild(losediv);
-                        }
-                        cancelAnimationFrame(animationGame);
-                        btnStart.style.display = 'block';
-                    }
-                }
+           
 
 
                 function init(){
@@ -320,7 +261,66 @@ const speedDash = document.querySelector('.speedDash');
                         }, true);
                     }
         
+                    function playGame(){
                 
+                        if(gamePlay){
+                        updateDash();
+                        //movement
+                        let roadPara=moveRoad();
+                        moveBadGuys();
+                        if(keys.ArrowUp)
+                        {   if(player.ele.y>400)
+                            player.ele.y -=  1;
+                            player.speed = player.speed <20 ? (player.speed+0.05):20;
+                        }
+                        if(keys.ArrowDown)
+                        {   if(player.ele.y<500)
+                            {player.ele.y +=  1;}
+                            player.speed = player.speed>0?(player.speed-0.2):0;
+                        }
+                        if(keys.ArrowRight)
+                        {
+                            player.ele.x += (player.speed/4);
+                        }
+                        if(keys.ArrowLeft)
+                        {
+                            player.ele.x -= (player.speed/4);
+                        }
+                    //CHECK IF ON ROAD
+                        if((player.ele.x + 40)<roadPara.left || (player.ele.x)>(roadPara.left + roadPara.width))
+                        {   if(player.ele.y <500)player.ele.y += +1;
+                            player.speed = player.speed >0?(player.speed-0.2):5;
+                            //console.log('OFF ROAD');
+                        }
+                    
+                        //move car
+                        player.ele.style.top = player.ele.y+'px';
+                        player.ele.style.left = player.ele.x+'px';
+                        }
+                        animationGame = requestAnimationFrame(playGame);
+                        if(player.gameEndCounter>0)
+                        {
+                            player.gameEndCounter--;
+                            player.y = (player.y >60)?player.y-30:60;
+                            if(player.gameEndCounter ==0)
+                            {
+                                gamePlay = false;
+                                if(player.lives<1)
+                                {
+                                let losediv = document.createElement('div');
+                                losediv.setAttribute('class','road');
+                                losediv.style.top = '500px';
+                                losediv.style.backgroundColor ='red';
+                                losediv.style.width = '250px';
+                                losediv.innerHTML = 'You Lose!';
+                                losediv.style.fontSize = '3em';
+                                losediv.style.zIndex = '120';
+                                container.appendChild(losediv);
+                                }
+                                cancelAnimationFrame(animationGame);
+                                btnStart.style.display = 'block';
+                            }
+                        }
         
                 }
                 
