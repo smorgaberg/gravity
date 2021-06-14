@@ -278,7 +278,7 @@ const speedDash = document.querySelector('.speedDash');
                     keys.ArrowUp = true;
 
                     var event = document.createEvent("Events");
-event.initEvent('keydown', true, true);
+event.initEvent('keyup', true, true);
 event.keyCode = 38;
 document.getElementById('objId').dispatchEvent(event);
                 }
@@ -298,7 +298,7 @@ document.getElementById('objId').dispatchEvent(event);
                     keys.ArrowLeft = true;
 
                     var event = document.createEvent("Events");
-event.initEvent('keydown', true, true);
+event.initEvent('keyleft', true, true);
 event.keyCode = 37;
 document.getElementById('objId').dispatchEvent(event);
                 }
@@ -308,7 +308,7 @@ document.getElementById('objId').dispatchEvent(event);
                     keys.ArrowRight = true;
 
                     var event = document.createEvent("Events");
-event.initEvent('keydown', true, true);
+event.initEvent('keyright', true, true);
 event.keyCode = 39;
 document.getElementById('objId').dispatchEvent(event);
                 }
