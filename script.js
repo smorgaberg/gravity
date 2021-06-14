@@ -272,21 +272,39 @@ function playGame(){
 
             }, true);
         }
-
+        if(y>5)
+        {   if(player.ele.y>400)
+            player.ele.y -=  1;
+            player.speed = player.speed <20 ? (player.speed+0.05):20;
+        }
+        if(y<-5)
+        {   if(player.ele.y<500)
+            {player.ele.y +=  1;}
+            player.speed = player.speed>0?(player.speed-0.2):0;
+        }
+        if(x<-5)
+        {
+            player.ele.x += (player.speed/4);
+        }
+        if(x>5)
+        {
+            player.ele.x -= (player.speed/4);
+        }
+    //CHECK IF ON ROAD
+        if((player.ele.x + 40)<roadPara.left || (player.ele.x)>(roadPara.left + roadPara.width))
+        {   if(player.ele.y <500)player.ele.y += +1;
+            player.speed = player.speed >0?(player.speed-0.2):5;
+            //console.log('OFF ROAD');
+        }
+    
+        //move car
+        player.ele.style.top = player.ele.y+'px';
+        player.ele.style.left = player.ele.x+'px';
     
 
     }
 
-    if(y>5)
-    {   if(player.ele.y>400)
-        player.ele.y -=  1;
-        player.speed = player.speed <20 ? (player.speed+0.05):20;
-    }
-    if(y<-5)
-    {   if(player.ele.y<500)
-        {player.ele.y +=  1;}
-        player.speed = player.speed>0?(player.speed-0.2):0;
-    }
+ 
     if(x<-5)
     {
         player.ele.x += (player.speed/4);
