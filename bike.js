@@ -141,9 +141,9 @@ const speedDash = document.querySelector('.speedDash');
                 //가속도에 변화가 발생 할때 
                 if(window.DeviceMotionEvent){
                     window.addEventListener('devicemotion', function(event){
-                        var a = event.accelerationIncludingGravity.x;
-                        var b = event.accelerationIncludingGravity.y;
-                        var c = event.accelerationIncludingGravity.z;
+                        let a = event.accelerationIncludingGravity.x;
+                        let b = event.accelerationIncludingGravity.y;
+                        let c = event.accelerationIncludingGravity.z;
                         //var r = event.accelerationIncludingGravity.r;
                       
                     
