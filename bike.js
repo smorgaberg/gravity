@@ -20,6 +20,45 @@ const speedDash = document.querySelector('.speedDash');
             }
             
 
+           
+            function play1() {
+        // 기다렸다가 시작 (밀리초)
+        setTimeout(function(){
+            document.getElementById("audio1").play();
+            console.log('your audio is started just now');
+          }, 10)
+
+
+
+
+            function startGame() {
+                //console.log(gamePlay);
+                container.innerHTML ='';
+                btnStart.style.display = "none";
+                var div = document.createElement('div');
+                div.setAttribute('class','playerBike');
+                if(isMobile!=null)//모바일
+                {div.x = 300;}// 자전거 위치
+                else{div.x=650;}//웹
+                div.y = 500;
+                container.appendChild(div);
+                gamePlay = true;
+                animationGame = requestAnimationFrame(playGame);
+                player ={
+                    ele:div,
+                    speed:0, //스피드
+                    lives:10, //생명
+                    gameScore:0,
+                    carstoPass:0, //차 지나가기
+                    score :0,
+                    roadwidth:250,
+                    gameEndCounter:0
+                }
+            
+                startBoard();
+                setupBadGuys(10);
+            }
+            
             function init(){
                 //Find out Div Element
                 var dataContainerOrientation = document.getElementById('dataContainerOrientation');
@@ -84,44 +123,13 @@ const speedDash = document.querySelector('.speedDash');
             
     
             }
-            function play1() {
-        // 기다렸다가 시작 (밀리초)
-        setTimeout(function(){
-            document.getElementById("audio1").play();
-            console.log('your audio is started just now');
-          }, 10)
 
 
 
 
-            function startGame() {
-                //console.log(gamePlay);
-                container.innerHTML ='';
-                btnStart.style.display = "none";
-                var div = document.createElement('div');
-                div.setAttribute('class','playerBike');
-                if(isMobile!=null)//모바일
-                {div.x = 300;}// 자전거 위치
-                else{div.x=650;}//웹
-                div.y = 500;
-                container.appendChild(div);
-                gamePlay = true;
-                animationGame = requestAnimationFrame(playGame);
-                player ={
-                    ele:div,
-                    speed:0, //스피드
-                    lives:10, //생명
-                    gameScore:0,
-                    carstoPass:0, //차 지나가기
-                    score :0,
-                    roadwidth:250,
-                    gameEndCounter:0
-                }
-            
-                startBoard();
-                setupBadGuys(10);
-            }
-            
+
+
+
             function setupBadGuys(num){
                 for(let x =0; x<num; x++)
                 {
@@ -165,16 +173,17 @@ const speedDash = document.querySelector('.speedDash');
             }
             
             
-            function pressKeyOn(event){
+           /* function pressKeyOn(event){
                 event.preventDefault();
                 //console.log(keys);
                 keys[event.key]=true;
             }
-            function pressKeyOff(event){
+           function pressKeyOff(event){
                 event.preventDefault();
                 //console.log(keys);
-                keys[event.key]=false;
+               /keys[event.key]=false;
             }
+            */
             
             function updateDash(){
                 //console.log(player);
@@ -284,21 +293,21 @@ const speedDash = document.querySelector('.speedDash');
                 //movement
                 let roadPara=moveRoad();
                 moveBadGuys();
-                if(keys.ArrowUp)
+                if(y>1)
                 {   if(player.ele.y>400)
                     player.ele.y -=  1;
                     player.speed = player.speed <20 ? (player.speed+0.05):20;
                 }
-                if(keys.ArrowDown)
+                if(y<-1)
                 {   if(player.ele.y<500)
                     {player.ele.y +=  1;}
                     player.speed = player.speed>0?(player.speed-0.2):0;
                 }
-                if(keys.ArrowRight)
+                if(x>3)
                 {
                     player.ele.x += (player.speed/4);
                 }
-                if(keys.ArrowLeft)
+                if(x<-3)
                 {
                     player.ele.x -= (player.speed/4);
                 }
