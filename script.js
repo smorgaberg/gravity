@@ -220,21 +220,78 @@ function playGame(){
     //movement
     let roadPara=moveRoad();
     moveBadGuys();
-    if(keys.ArrowUp)
+
+    function init(){
+        //Find out Div Element
+        var dataContainerOrientation = document.getElementById('dataContainerOrientation');
+        var dataContainerMotion = document.getElementById('dataContainerMotion');
+        var ball = document.getElementById("ball");
+        var garden = document.getElementById("garden")
+
+        var maxX = garden.clientWidth * 2 - ball.clientWidth;
+        var maxY = garden.clientHeight * 2- ball.clientHeight;
+        //alert(maxY);
+
+
+        //가속도계가 기기의 방향의 변화를 감지 했을때
+        if(window.DeviceOrientationEvent){
+            //이벤트 리스너 등록
+            window.addEventListener('deviceorientation', function(event) {
+                var absolute = event.absolute;
+                var alpha = event.alpha;
+                var beta = event.beta; //(-180, 180)
+                var gamma = event.gamma; //(-90, 90)
+                console.log(gamma);
+                var html =  "absolute: " +absolute+ "<br>alpha: " +alpha+ "<br>bata: " +beta+ "<br>gamma: "+ gamma; 
+                dataContainerOrientation.innerHTML = html;	
+
+
+                //볼을 움직이자.
+                if(beta > 90) {beta = 90};
+                if(beta < -90) {beta = -90};
+                beta +90;
+                gamma +90;
+
+                player.ele.x = (maxY*gamma/180 + 100) + "px";
+                
+            }, false);
+        }
+
+        //가속도에 변화가 발생 할때 
+        if(window.DeviceMotionEvent){
+            window.addEventListener('devicemotion', function(event){
+                var x = event.accelerationIncludingGravity.x;
+                var y = event.accelerationIncludingGravity.y;
+                var z = event.accelerationIncludingGravity.z;
+                //var r = event.accelerationIncludingGravity.r;
+
+                var html = "x: " +x+ "<br>y: "+y+ "<br>z: " +z;
+                dataContainerMotion.innerHTML = html;
+
+            
+
+            }, true);
+        }
+
+    
+
+    }
+
+    if(y>5)
     {   if(player.ele.y>400)
         player.ele.y -=  1;
         player.speed = player.speed <20 ? (player.speed+0.05):20;
     }
-    if(keys.ArrowDown)
+    if(y<-5)
     {   if(player.ele.y<500)
         {player.ele.y +=  1;}
         player.speed = player.speed>0?(player.speed-0.2):0;
     }
-    if(keys.ArrowRight)
+    if(x<-5)
     {
         player.ele.x += (player.speed/4);
     }
-    if(keys.ArrowLeft)
+    if(x>5)
     {
         player.ele.x -= (player.speed/4);
     }
@@ -248,6 +305,7 @@ function playGame(){
     //move car
     player.ele.style.top = player.ele.y+'px';
     player.ele.style.left = player.ele.x+'px';
+    
     }
     animationGame = requestAnimationFrame(playGame);
     if(player.gameEndCounter>0)
@@ -273,4 +331,9 @@ function playGame(){
             btnStart.style.display = 'block';
         }
     }
+
+
+
+		
+		
 }
