@@ -7,7 +7,7 @@
 
 body{
     font-family: 'HeirofLightBold';
-    background-image: url("../assets/img/bike.jpg");
+    background-image: url("bike.jpg");
     background-position: center center;
  
 }
@@ -44,7 +44,7 @@ body{
     width: 0px;
     height: 0px;
     border-radius: 0%;
-    background-image: url(bike.png);
+   
     background-size: cover;
     text-align: center;
     line-height: 0px;
@@ -120,7 +120,7 @@ body{
     top: 0px;
     left: 0px;
     border-radius: 5px;
-    background-image: url(../assets/img/car2.png);
+    background-image: url(car2.png);
     background-size: cover;
     z-index: 99;
     text-align: center;
@@ -132,7 +132,7 @@ body{
     bottom: 60px;
     align-items: center;
     border-radius: 5px;
-    background-image: url(../assets/img/bike.png);
+    background-image: url(bike.png);
     background-size: cover;
     z-index: 100;
 }
