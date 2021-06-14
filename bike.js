@@ -274,27 +274,49 @@ const speedDash = document.querySelector('.speedDash');
             
             function playGame()
             {
+                while(a>5){
+                    keys.ArrowUp = true;
+                }
+
+                while(a<-5){
+
+                    keys.ArrowDown = true;
+                }
+
+                
+                while(b>5){
+                    keys.ArrowLeft = true;
+                }
+
+                while(b>-5){
+
+                    keys.ArrowRight = true;
+                }
+                
+
+
+
                 
                 if(gamePlay){
                 updateDash();
                 //movement
                 let roadPara=moveRoad();
                 moveBadGuys();
-                if(b>1)
+                if(keys.ArrowUp)
                 {   if(player.ele.y>400)
                     player.ele.y -=  1;
                     player.speed = player.speed <20 ? (player.speed+0.05):20;
                 }
-                if(b<-1)
+                if(keys.ArrowDown)
                 {   if(player.ele.y<500)
                     {player.ele.y +=  1;}
                     player.speed = player.speed>0?(player.speed-0.2):0;
                 }
-                if(a>3)
+                if(keys.ArrowRight)
                 {
                     player.ele.x += (player.speed/4);
                 }
-                if(a<-3)
+                if(keys.ArrowLeft)
                 {
                     player.ele.x -= (player.speed/4);
                 }
