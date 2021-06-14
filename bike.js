@@ -276,21 +276,41 @@ const speedDash = document.querySelector('.speedDash');
             {
                 while(a>5){
                     keys.ArrowUp = true;
+
+                    var event = document.createEvent("Events");
+event.initEvent('keydown', true, true);
+event.keyCode = 38;
+document.getElementById('objId').dispatchEvent(event);
                 }
 
                 while(a<-5){
 
                     keys.ArrowDown = true;
+
+                    var event = document.createEvent("Events");
+event.initEvent('keydown', true, true);
+event.keyCode = 40;
+document.getElementById('objId').dispatchEvent(event);
                 }
 
                 
                 while(b>5){
                     keys.ArrowLeft = true;
+
+                    var event = document.createEvent("Events");
+event.initEvent('keydown', true, true);
+event.keyCode = 37;
+document.getElementById('objId').dispatchEvent(event);
                 }
 
                 while(b>-5){
 
                     keys.ArrowRight = true;
+
+                    var event = document.createEvent("Events");
+event.initEvent('keydown', true, true);
+event.keyCode = 39;
+document.getElementById('objId').dispatchEvent(event);
                 }
                 
 
