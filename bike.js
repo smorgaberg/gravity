@@ -19,6 +19,81 @@ const speedDash = document.querySelector('.speedDash');
                 ArrowRight: false
             }
             
+
+            function init(){
+                //Find out Div Element
+                var dataContainerOrientation = document.getElementById('dataContainerOrientation');
+                var dataContainerMotion = document.getElementById('dataContainerMotion');
+                var ball = document.getElementById("ball");
+                var garden = document.getElementById("garden")
+    
+                var maxX = garden.clientWidth * 2 - ball.clientWidth;
+                var maxY = garden.clientHeight * 2- ball.clientHeight;
+                //alert(maxY);
+    
+    
+                //가속도계가 기기의 방향의 변화를 감지 했을때
+                if(window.DeviceOrientationEvent){
+                    //이벤트 리스너 등록
+                    window.addEventListener('deviceorientation', function(event) {
+                        var absolute = event.absolute;
+                        var alpha = event.alpha;
+                        var beta = event.beta; //(-180, 180)
+                        var gamma = event.gamma; //(-90, 90)
+                        console.log(gamma);
+                        var html =  "absolute: " +absolute+ "<br>alpha: " +alpha+ "<br>bata: " +beta+ "<br>gamma: "+ gamma; 
+                        dataContainerOrientation.innerHTML = html;	
+    
+    
+                        //볼을 움직이자.
+                        if(beta > 90) {beta = 90};
+                        if(beta < -90) {beta = -90};
+                        beta +90;
+                        gamma +90;
+    
+                        ball.style.top = (maxX*beta/180 + 100) + "px";
+                        ball.style.left = (maxY*gamma/180 + 100) + "px";
+                        
+                    }, false);
+                }
+    
+                //가속도에 변화가 발생 할때 
+                if(window.DeviceMotionEvent){
+                    window.addEventListener('devicemotion', function(event){
+                        var x = event.accelerationIncludingGravity.x;
+                        var y = event.accelerationIncludingGravity.y;
+                        var z = event.accelerationIncludingGravity.z;
+                        //var r = event.accelerationIncludingGravity.r;
+                      
+                    
+    
+    
+                        var html = "x: " +x+ "<br>y: "+y+ "<br>z: " +z;
+                        dataContainerMotion.innerHTML = html;
+    
+                        if(y > 5){
+                    play1();
+    
+    
+    
+                }
+    
+                    }, true);
+                }
+    
+            
+    
+            }
+            function play1() {
+        // 기다렸다가 시작 (밀리초)
+        setTimeout(function(){
+            document.getElementById("audio1").play();
+            console.log('your audio is started just now');
+          }, 10)
+
+
+
+
             function startGame() {
                 //console.log(gamePlay);
                 container.innerHTML ='';
@@ -202,128 +277,65 @@ const speedDash = document.querySelector('.speedDash');
                 player.speed =0;
             }
             
-           
-
-
-                function init(){
-                    //Find out Div Element
-                    var dataContainerOrientation = document.getElementById('dataContainerOrientation');
-                    var dataContainerMotion = document.getElementById('dataContainerMotion');
-                    var ball = document.getElementById("ball");
-                    var garden = document.getElementById("garden")
-        
-                    var maxX = garden.clientWidth * 2 - ball.clientWidth;
-                    var maxY = garden.clientHeight * 2- ball.clientHeight;
-                    //alert(maxY);
-        
-        
-                    //가속도계가 기기의 방향의 변화를 감지 했을때
-                    if(window.DeviceOrientationEvent){
-                        //이벤트 리스너 등록
-                        window.addEventListener('deviceorientation', function(event) {
-                            var absolute = event.absolute;
-                            var alpha = event.alpha;
-                            var beta = event.beta; //(-180, 180)
-                            var gamma = event.gamma; //(-90, 90)
-                            console.log(gamma);
-                            var html =  "absolute: " +absolute+ "<br>alpha: " +alpha+ "<br>bata: " +beta+ "<br>gamma: "+ gamma; 
-                            dataContainerOrientation.innerHTML = html;	
-        
-        
-                            //볼을 움직이자.
-                            if(beta > 90) {beta = 90};
-                            if(beta < -90) {beta = -90};
-                            beta +90;
-                            gamma +90;
-        
-                           
-                           
-                            
-                        }, false);
-                    }
-        
-                    //가속도에 변화가 발생 할때 
-                    if(window.DeviceMotionEvent){
-                        window.addEventListener('devicemotion', function(event){
-                            var x = event.accelerationIncludingGravity.x;
-                            var y = event.accelerationIncludingGravity.y;
-                            var z = event.accelerationIncludingGravity.z;
-                            //var r = event.accelerationIncludingGravity.r;
-                          
-                        
-        
-        
-                            var html = "x: " +x+ "<br>y: "+y+ "<br>z: " +z;
-                            dataContainerMotion.innerHTML = html;
-        
-                            
-        
-                        }, true);
-                    }
-        
-                    function playGame(){
+            function playGame(){
                 
-                        if(gamePlay){
-                        updateDash();
-                        //movement
-                        let roadPara=moveRoad();
-                        moveBadGuys();
-                        if(y>0)
-                        {   if(player.ele.y>400)
-                            player.ele.y -=  1;
-                            player.speed = player.speed <20 ? (player.speed+0.05):20;
-                        }
-                        if(y<0)
-                        {   if(player.ele.y<500)
-                            {player.ele.y +=  1;}
-                            player.speed = player.speed>0?(player.speed-0.2):0;
-                        }
-                        if(kx>0)
-                        {
-                            player.ele.x += (player.speed/4);
-                        }
-                        if(kx<0)
-                        {
-                            player.ele.x -= (player.speed/4);
-                        }
-                    //CHECK IF ON ROAD
-                        if((player.ele.x + 40)<roadPara.left || (player.ele.x)>(roadPara.left + roadPara.width))
-                        {   if(player.ele.y <500)player.ele.y += +1;
-                            player.speed = player.speed >0?(player.speed-0.2):5;
-                            //console.log('OFF ROAD');
-                        }
-                    
-                        //move car
-                        player.ele.style.top = player.ele.y+'px';
-                        player.ele.style.left = player.ele.x+'px';
-                        }
-                        animationGame = requestAnimationFrame(playGame);
-                        if(player.gameEndCounter>0)
-                        {
-                            player.gameEndCounter--;
-                            player.y = (player.y >60)?player.y-30:60;
-                            if(player.gameEndCounter ==0)
-                            {
-                                gamePlay = false;
-                                if(player.lives<1)
-                                {
-                                let losediv = document.createElement('div');
-                                losediv.setAttribute('class','road');
-                                losediv.style.top = '500px';
-                                losediv.style.backgroundColor ='red';
-                                losediv.style.width = '250px';
-                                losediv.innerHTML = 'You Lose!';
-                                losediv.style.fontSize = '3em';
-                                losediv.style.zIndex = '120';
-                                container.appendChild(losediv);
-                                }
-                                cancelAnimationFrame(animationGame);
-                                btnStart.style.display = 'block';
-                            }
-                        }
-        
+                if(gamePlay){
+                updateDash();
+                //movement
+                let roadPara=moveRoad();
+                moveBadGuys();
+                if(keys.ArrowUp)
+                {   if(player.ele.y>400)
+                    player.ele.y -=  1;
+                    player.speed = player.speed <20 ? (player.speed+0.05):20;
                 }
-                
-
-
+                if(keys.ArrowDown)
+                {   if(player.ele.y<500)
+                    {player.ele.y +=  1;}
+                    player.speed = player.speed>0?(player.speed-0.2):0;
+                }
+                if(keys.ArrowRight)
+                {
+                    player.ele.x += (player.speed/4);
+                }
+                if(keys.ArrowLeft)
+                {
+                    player.ele.x -= (player.speed/4);
+                }
+            //CHECK IF ON ROAD
+                if((player.ele.x + 40)<roadPara.left || (player.ele.x)>(roadPara.left + roadPara.width))
+                {   if(player.ele.y <500)player.ele.y += +1;
+                    player.speed = player.speed >0?(player.speed-0.2):5;
+                    //console.log('OFF ROAD');
+                }
+            
+                //move car
+                player.ele.style.top = player.ele.y+'px';
+                player.ele.style.left = player.ele.x+'px';
+                }
+                animationGame = requestAnimationFrame(playGame);
+                if(player.gameEndCounter>0)
+                {
+                    player.gameEndCounter--;
+                    player.y = (player.y >60)?player.y-30:60;
+                    if(player.gameEndCounter ==0)
+                    {
+                        gamePlay = false;
+                        if(player.lives<1)
+                        {
+                        let losediv = document.createElement('div');
+                        losediv.setAttribute('class','road');
+                        losediv.style.top = '500px';
+                        losediv.style.backgroundColor ='red';
+                        losediv.style.width = '250px';
+                        losediv.innerHTML = 'You Lose!';
+                        losediv.style.fontSize = '3em';
+                        losediv.style.zIndex = '120';
+                        container.appendChild(losediv);
+                        }
+                        cancelAnimationFrame(animationGame);
+                        btnStart.style.display = 'block';
+                    }
+                }
             }
+        }
