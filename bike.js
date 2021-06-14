@@ -29,7 +29,7 @@ const speedDash = document.querySelector('.speedDash');
           }, 10)
 
 
-
+        }
 
 
             function setupBadGuys(num){
@@ -338,4 +338,4 @@ const speedDash = document.querySelector('.speedDash');
                     }
                 }
             }
-        }
+        
