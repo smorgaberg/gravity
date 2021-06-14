@@ -6,12 +6,18 @@ const speedDash = document.querySelector('.speedDash');
             var isMobile = navigator.userAgent.match(/(iPhone|iPod|iPad|Android)/);
             btnStart.addEventListener('click',startGame);
             document.addEventListener('keydown',pressKeyOn);
-            document.addEventListener('keyup',pressKeyOff); 
+            document.addEventListener('keyup',pressKeyOff);
+
+            
             
             //Game Variables
             let animationGame; //= requestAnimationFrame(playGame);
             let gamePlay = false;
             let player; 
+            let a;
+            let b;
+            let c;
+
             let keys = {
                 ArrowUp:false,
                 ArrowDown:false,
@@ -108,7 +114,9 @@ const speedDash = document.querySelector('.speedDash');
                 var dataContainerMotion = document.getElementById('dataContainerMotion');
                 var ball = document.getElementById("ball");
                 var garden = document.getElementById("garden")
-    
+                var a;
+                var b;
+                var c;
                
                 //alert(maxY);
     
@@ -141,30 +149,17 @@ const speedDash = document.querySelector('.speedDash');
                 //가속도에 변화가 발생 할때 
                 if(window.DeviceMotionEvent){
                     window.addEventListener('devicemotion', function(event){
-                        let a = event.accelerationIncludingGravity.x;
-                        let b = event.accelerationIncludingGravity.y;
-                        let c = event.accelerationIncludingGravity.z;
-                        //var r = event.accelerationIncludingGravity.r;
-                      
-                    
-    
-    
-                        var html = "x: " +x+ "<br>y: "+y+ "<br>z: " +z;
-                        dataContainerMotion.innerHTML = html;
-    
-                       
-    
+                        a = event.accelerationIncludingGravity.x;
+                        b = event.accelerationIncludingGravity.y;
+                        c = event.accelerationIncludingGravity.z;
                     }, true);
                 }
     
-            
     
             }
 
 
-
-            
-           function pressKeyOn(event){
+               function pressKeyOn(event){
                 event.preventDefault();
                 //console.log(keys);
                 keys[event.key]=true;
@@ -277,7 +272,8 @@ const speedDash = document.querySelector('.speedDash');
                 player.speed =0;
             }
             
-            function playGame(){
+            function playGame()
+            {
                 
                 if(gamePlay){
                 updateDash();
