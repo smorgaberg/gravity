@@ -297,14 +297,12 @@ function playGame(){
             //console.log('OFF ROAD');
         }
     
-        //move car
-        player.ele.style.top = player.ele.y+'px';
-        player.ele.style.left = player.ele.x+'px';
+       
     
 
     }
 
- 
+
     if(x<-5)
     {
         player.ele.x += (player.speed/4);
