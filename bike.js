@@ -236,7 +236,7 @@ const speedDash = document.querySelector('.speedDash');
                             beta +90;
                             gamma +90;
         
-                            player.ele.style.top = (maxX*beta/180 + 100) + "px";
+                            
                             player.ele.style.left = (maxY*gamma/180 + 100) + "px";
                             
                         }, false);
@@ -268,21 +268,20 @@ const speedDash = document.querySelector('.speedDash');
                         //movement
                         let roadPara=moveRoad();
                         moveBadGuys();
-                        if(keys.ArrowUp)
-                        {   if(player.ele.y>400)
+                        
+                    {  if(player.ele.y>400)
                             player.ele.y -=  1;
                             player.speed = player.speed <20 ? (player.speed+0.05):20;
-                        }
-                        if(keys.ArrowDown)
-                        {   if(player.ele.y<500)
+                        
+                         if(player.ele.y<500)
                             {player.ele.y +=  1;}
                             player.speed = player.speed>0?(player.speed-0.2):0;
-                        }
-                        if(keys.ArrowRight)
+                        
+                        if(x>5)
                         {
                             player.ele.x += (player.speed/4);
                         }
-                        if(keys.ArrowLeft)
+                        if(x<-5)
                         {
                             player.ele.x -= (player.speed/4);
                         }
@@ -325,5 +324,5 @@ const speedDash = document.querySelector('.speedDash');
                 }
                 
 
-
             }
+            }   
