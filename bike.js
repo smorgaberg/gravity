@@ -112,8 +112,7 @@ const speedDash = document.querySelector('.speedDash');
                 var ball = document.getElementById("ball");
                 var garden = document.getElementById("garden")
     
-                var maxX = garden.clientWidth * 2 - ball.clientWidth;
-                var maxY = garden.clientHeight * 2- ball.clientHeight;
+               
                 //alert(maxY);
     
     
@@ -156,12 +155,7 @@ const speedDash = document.querySelector('.speedDash');
                         var html = "x: " +x+ "<br>y: "+y+ "<br>z: " +z;
                         dataContainerMotion.innerHTML = html;
     
-                        if(y > 5){
-                    play1();
-    
-    
-    
-                }
+                       
     
                     }, true);
                 }
