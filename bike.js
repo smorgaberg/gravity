@@ -141,7 +141,7 @@ const speedDash = document.querySelector('.speedDash');
                         gamma +90;
     
                         
-                        bike.style.left = (maxX*beta/180 + 100) + "px";
+                        bike.ele.left = (maxX*beta/180 + 100) + "px";
                         player.ele.style.top = (maxY*gamma/180 + 100) + "px";
                       
                     }, false);
