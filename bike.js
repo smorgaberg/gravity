@@ -276,7 +276,7 @@ const speedDash = document.querySelector('.speedDash');
                         }
                     }
                 }
-            }
+            } */
             
             function gameOverPlay()
             {
