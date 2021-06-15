@@ -95,7 +95,7 @@ const speedDash = document.querySelector('.speedDash');
                 animationGame = requestAnimationFrame(playGame);
                 player ={
                     ele:div, 
-                    speed:0, //스피드
+                    speed:20, //스피드
                     lives:10, //생명
                     gameScore:0,
                     carstoPass:0, //차 지나가기
@@ -141,13 +141,13 @@ const speedDash = document.querySelector('.speedDash');
                         gamma +90;
     
                         
-                        /*bike.ele.left = (maxX*beta/180 + 100) + "px";
-                        player.ele.style.top = (maxY*gamma/180 + 100) + "px";*/
+                        player.ele.style.left = (maxX*beta/180 + 100) + "px";
+                       // player.ele.style.top = (maxY*gamma/180 + 100) + "px";
                       
-                        playGame();
+                       
 
                         
-                    }, false);
+                    }, true);
                 }
     
                 //가속도에 변화가 발생 할때 
@@ -303,8 +303,8 @@ const speedDash = document.querySelector('.speedDash');
                             init();
                 
                 }
-              
-                if(alpha>5)
+                
+                /*if(alpha>5)
                 {   if(player.ele.y>400)
                 {player.ele.y -=  1;}
                     player.speed = player.speed <20 ? (player.speed+0.05):20;
@@ -313,15 +313,15 @@ const speedDash = document.querySelector('.speedDash');
                 {   if(player.ele.y<500)
                     {player.ele.y +=  1;}
                     player.speed = player.speed>0?(player.speed-0.2):0;
-                }
-                if(beta>5)
+                }*/
+               /* if(beta>5)
                 {
                     player.ele.x += (player.speed/4);
                 }
                 if(beta<-5)
                 {
                     player.ele.x -= (player.speed/4);
-                }
+                } */
             //CHECK IF ON ROAD
                 
             if((player.ele.x + 40)<roadPara.left || (player.ele.x)>(roadPara.left + roadPara.width))
@@ -331,8 +331,8 @@ const speedDash = document.querySelector('.speedDash');
                 }
             
                 //move car
-               player.ele.style.top = player.ele.y+'px';
-                player.ele.style.left = player.ele.x+'px';
+               /*player.ele.style.top = player.ele.y+'px';
+                player.ele.style.left = player.ele.x+'px';*/
                 }
                 animationGame = requestAnimationFrame(playGame);
                 if(player.gameEndCounter>0)
