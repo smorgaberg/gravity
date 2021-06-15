@@ -147,7 +147,7 @@ const speedDash = document.querySelector('.speedDash');
                         
                         
                         player.ele.style.top = (maxX*beta/180 + 100) + "px";
-                      // player.div.style.top = (maxY*gamma/180 + 100) + "px";
+                      player.ele.style.left = (maxY*gamma/180 + 100) + "px";
                       
                        
 
@@ -191,7 +191,7 @@ const speedDash = document.querySelector('.speedDash');
                 speedDash.innerHTML = Math.round(player.speed*10);
             }
             
-            function moveRoad(){
+          /*  function moveRoad(){
                 let tempRoad = document.querySelectorAll('.road');
                 //console.log(tempRoad);
                 let previousRoad = tempRoad[0].offsetLeft;
