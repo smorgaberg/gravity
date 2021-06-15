@@ -191,7 +191,7 @@ const speedDash = document.querySelector('.speedDash');
                 speedDash.innerHTML = Math.round(player.speed*10);
             }
             
-          /*  function moveRoad(){
+            function moveRoad(){
                 let tempRoad = document.querySelectorAll('.road');
                 //console.log(tempRoad);
                 let previousRoad = tempRoad[0].offsetLeft;
@@ -231,8 +231,8 @@ const speedDash = document.querySelector('.speedDash');
                     (aRect.right <bRect.left)||
                     (aRect.left > bRect.right)
                 )
-            } */
-            /*
+            } 
+            
             function moveBadGuys(){
                 let tempBaddy = document.querySelectorAll('.baddy');
                 for(let i=0; i<tempBaddy.length; i++)
@@ -276,7 +276,7 @@ const speedDash = document.querySelector('.speedDash');
                         }
                     }
                 }
-            } */
+            } 
             
             function gameOverPlay()
             {
