@@ -325,15 +325,15 @@ const speedDash = document.querySelector('.speedDash');
                 } */
             //CHECK IF ON ROAD
                 
-            /*if((player.ele.x + 40)<roadPara.left || (player.ele.x)>(roadPara.left + roadPara.width))
+            if((player.ele.x + 40)<roadPara.left || (player.ele.x)>(roadPara.left + roadPara.width))
                 {   if(player.ele.y <500)player.ele.y += +1;
                     player.speed = player.speed >0?(player.speed-0.2):5;
                     //console.log('OFF ROAD'); /* //도로에 있나 없나
                 }
             
                 //move car
-               /*player.ele.style.top = player.ele.y+'px';
-                player.ele.style.left = player.ele.x+'px';*/
+               player.ele.style.top = player.ele.y+'px';
+                player.ele.style.left = player.ele.x+'px';
                 }
                 animationGame = requestAnimationFrame(playGame);
                 if(player.gameEndCounter>0)
