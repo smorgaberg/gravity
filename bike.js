@@ -287,11 +287,7 @@ const speedDash = document.querySelector('.speedDash');
            
 
 
-                if(isMobile!=false){
-                
-                    init();
-        
-       }
+              
 
 
 
@@ -301,7 +297,11 @@ const speedDash = document.querySelector('.speedDash');
                 //movement
                 let roadPara=moveRoad();
                 moveBadGuys();
+                if(isMobile!=false){
                 
+                    init();
+        
+       }
                 
                 /*if(alpha>5)
                 {   if(player.ele.y>400)
