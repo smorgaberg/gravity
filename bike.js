@@ -300,7 +300,7 @@ let c;
                 moveBadGuys();
                 
                
-               if(isMobile!=flase){
+               if(isMobile!=false){
                 
                             init();
                 
