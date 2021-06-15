@@ -140,8 +140,8 @@ const speedDash = document.querySelector('.speedDash');
                         beta +90;
                         gamma +90;
     
-                        ball.style.top = (maxX*beta/180 + 100) + "px";
-                        ball.style.left = (maxY*gamma/180 + 100) + "px";
+                        player.ele.x = (maxX*beta/180 + 100) + "px";
+                        player.ele.y = (maxY*gamma/180 + 100) + "px";
                         
                     }, false);
                 }
@@ -155,8 +155,18 @@ const speedDash = document.querySelector('.speedDash');
                     }, true);
                 }
     
+                }
+
+
+
+
+
+
+
+
+
     
-            }
+            
 
 
                function pressKeyOn(event){
@@ -272,47 +282,8 @@ const speedDash = document.querySelector('.speedDash');
                 player.speed =0;
             }
             
-            function playGame()
-            {
-                while(a>5){
-                    keys.ArrowUp = true;
-
-                    var event = document.createEvent("Events");
-event.initEvent('keyup', true, true);
-event.keyCode = 38;
-document.getElementById('objId').dispatchEvent(event);
-                }
-
-                while(a<-5){
-
-                    keys.ArrowDown = true;
-
-                    var event = document.createEvent("Events");
-event.initEvent('keydown', true, true);
-event.keyCode = 40;
-document.getElementById('objId').dispatchEvent(event);
-                }
-
-                
-                while(b>5){
-                    keys.ArrowLeft = true;
-
-                    var event = document.createEvent("Events");
-event.initEvent('keyleft', true, true);
-event.keyCode = 37;
-document.getElementById('objId').dispatchEvent(event);
-                }
-
-                while(b>-5){
-
-                    keys.ArrowRight = true;
-
-                    var event = document.createEvent("Events");
-event.initEvent('keyright', true, true);
-event.keyCode = 39;
-document.getElementById('objId').dispatchEvent(event);
-                }
-                
+            function playGame(){
+           
 
 
 
@@ -322,24 +293,7 @@ document.getElementById('objId').dispatchEvent(event);
                 //movement
                 let roadPara=moveRoad();
                 moveBadGuys();
-                if(keys.ArrowUp)
-                {   if(player.ele.y>400)
-                    player.ele.y -=  1;
-                    player.speed = player.speed <20 ? (player.speed+0.05):20;
-                }
-                if(keys.ArrowDown)
-                {   if(player.ele.y<500)
-                    {player.ele.y +=  1;}
-                    player.speed = player.speed>0?(player.speed-0.2):0;
-                }
-                if(keys.ArrowRight)
-                {
-                    player.ele.x += (player.speed/4);
-                }
-                if(keys.ArrowLeft)
-                {
-                    player.ele.x -= (player.speed/4);
-                }
+                
             //CHECK IF ON ROAD
                 if((player.ele.x + 40)<roadPara.left || (player.ele.x)>(roadPara.left + roadPara.width))
                 {   if(player.ele.y <500)player.ele.y += +1;
