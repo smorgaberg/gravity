@@ -140,8 +140,8 @@ const speedDash = document.querySelector('.speedDash');
                         beta +90;
                         gamma +90;
     
-                        player.ele.style.left = (maxX*beta/180 + 100) + "px";
-                        player.ele.style.top = (maxY*gamma/180 + 100) + "px";
+                        player.ele.style.x = (maxX*beta/180 + 100) + "px";
+                        player.ele.style.y = (maxY*gamma/180 + 100) + "px";
                         
                     }, false);
                 }
