@@ -145,7 +145,7 @@ const speedDash = document.querySelector('.speedDash');
     
                         
                         player.div.style.left = (maxX*beta/180 + 100) + "px";
-                       player.div.style.top = (maxY*gamma/180 + 100) + "px";
+                      // player.div.style.top = (maxY*gamma/180 + 100) + "px";
                       
                        
 
