@@ -118,7 +118,7 @@ const speedDash = document.querySelector('.speedDash');
                 var ball = document.getElementById("ball");
                 var garden = document.getElementById("garden")
                 
-                var bike = document.getElementById("playerBike");
+                
                 var maxX = garden.clientWidth * 2 - ball.clientWidth;
 			    var maxY = garden.clientHeight * 2- ball.clientHeight;
                 //alert(maxY);
