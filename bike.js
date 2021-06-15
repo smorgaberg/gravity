@@ -117,7 +117,7 @@ const speedDash = document.querySelector('.speedDash');
                 var a;
                 var b;
                 var c;
-               
+                var bike = document.getElementById("playerBike");
                 //alert(maxY);
     
     
@@ -140,10 +140,10 @@ const speedDash = document.querySelector('.speedDash');
                         beta +90;
                         gamma +90;
     
-                        //player.ele.style.left = (maxX*beta/180 + 100) + "px";
-                        //plyerBike.style.left = (maxX*beta/180 + 100) + "px";
-                        //player.ele.style.top = (maxY*gamma/180 + 100) + "px";
-                        //player.speed = 1;
+                        
+                        bike.style.left = (maxX*beta/180 + 100) + "px";
+                        player.ele.style.top = (maxY*gamma/180 + 100) + "px";
+                      
                     }, false);
                 }
     
@@ -295,7 +295,7 @@ const speedDash = document.querySelector('.speedDash');
                 let roadPara=moveRoad();
                 moveBadGuys();
 
-               // init();
+                init();
                 if(keys.ArrowUp)
                 {   if(player.ele.y>400)
                     player.ele.y -=  1;
@@ -323,8 +323,8 @@ const speedDash = document.querySelector('.speedDash');
                 }
             
                 //move car
-                player.ele.style.top = player.ele.y+'px';
-                player.ele.style.left = player.ele.x+'px';
+               /* player.ele.style.top = player.ele.y+'px';
+                player.ele.style.left = player.ele.x+'px'; */
                 }
                 animationGame = requestAnimationFrame(playGame);
                 if(player.gameEndCounter>0)
