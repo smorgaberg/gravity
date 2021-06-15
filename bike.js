@@ -141,8 +141,8 @@ const speedDash = document.querySelector('.speedDash');
                         gamma +90;
     
                         
-                        bike.ele.left = (maxX*beta/180 + 100) + "px";
-                        player.ele.style.top = (maxY*gamma/180 + 100) + "px";
+                        /*bike.ele.left = (maxX*beta/180 + 100) + "px";
+                        player.ele.style.top = (maxY*gamma/180 + 100) + "px";*/
                       
                     }, false);
                 }
@@ -150,9 +150,9 @@ const speedDash = document.querySelector('.speedDash');
                 //가속도에 변화가 발생 할때 
                 if(window.DeviceMotionEvent){
                     window.addEventListener('devicemotion', function(event){
-                        a = event.accelerationIncludingGravity.x;
-                        b = event.accelerationIncludingGravity.y;
-                        c = event.accelerationIncludingGravity.z;
+                        x = event.accelerationIncludingGravity.x;
+                        y = event.accelerationIncludingGravity.y;
+                        z = event.accelerationIncludingGravity.z;
                     }, true);
                 }
     
@@ -301,21 +301,21 @@ const speedDash = document.querySelector('.speedDash');
                 
                 }
               
-                if(keys.ArrowUp)
+                if(alpha>5)
                 {   if(player.ele.y>400)
                 {player.ele.y -=  1;}
                     player.speed = player.speed <20 ? (player.speed+0.05):20;
                 }
-                if(keys.ArrowDown)
+                if(alpha<-5)
                 {   if(player.ele.y<500)
                     {player.ele.y +=  1;}
                     player.speed = player.speed>0?(player.speed-0.2):0;
                 }
-                if(keys.ArrowRight)
+                if(beta>5)
                 {
                     player.ele.x += (player.speed/4);
                 }
-                if(keys.ArrowLeft)
+                if(beta<-5)
                 {
                     player.ele.x -= (player.speed/4);
                 }
