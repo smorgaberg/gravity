@@ -144,6 +144,9 @@ const speedDash = document.querySelector('.speedDash');
                         /*bike.ele.left = (maxX*beta/180 + 100) + "px";
                         player.ele.style.top = (maxY*gamma/180 + 100) + "px";*/
                       
+                        playGame();
+
+                        
                     }, false);
                 }
     
