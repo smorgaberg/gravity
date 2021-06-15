@@ -330,8 +330,8 @@ const speedDash = document.querySelector('.speedDash');
                 }
             
                 //move car
-               playerBike.style.top = a+'px';
-                playerBike.style.left = b+'px';
+               playerBike.ele.top = a+'px';
+                playerBike.ele.left = b+'px';
                 }
                 animationGame = requestAnimationFrame(playGame);
                 if(player.gameEndCounter>0)
