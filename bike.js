@@ -140,8 +140,8 @@ const speedDash = document.querySelector('.speedDash');
                         beta +90;
                         gamma +90;
     
-                        player.ele.x = (maxX*beta/180 + 100) + "px";
-                        player.ele.y = (maxY*gamma/180 + 100) + "px";
+                        player.ele.style.left = (maxX*beta/180 + 100) + "px";
+                        player.ele.top = (maxY*gamma/180 + 100) + "px";
                         
                     }, false);
                 }
@@ -293,7 +293,24 @@ const speedDash = document.querySelector('.speedDash');
                 //movement
                 let roadPara=moveRoad();
                 moveBadGuys();
-                
+                /*if(keys.ArrowUp)
+                {   if(player.ele.y>400)
+                    player.ele.y -=  1;
+                    player.speed = player.speed <20 ? (player.speed+0.05):20;
+                }
+                if(keys.ArrowDown)
+                {   if(player.ele.y<500)
+                    {player.ele.y +=  1;}
+                    player.speed = player.speed>0?(player.speed-0.2):0;
+                }
+                if(keys.ArrowRight)
+                {
+                    player.ele.x += (player.speed/4);
+                }
+                if(keys.ArrowLeft)
+                {
+                    player.ele.x -= (player.speed/4);
+                }*/
             //CHECK IF ON ROAD
                 if((player.ele.x + 40)<roadPara.left || (player.ele.x)>(roadPara.left + roadPara.width))
                 {   if(player.ele.y <500)player.ele.y += +1;
@@ -302,8 +319,8 @@ const speedDash = document.querySelector('.speedDash');
                 }
             
                 //move car
-                player.ele.style.top = player.ele.y+'px';
-                player.ele.style.left = player.ele.x+'px';
+                //player.ele.style.top = player.ele.y+'px';
+                //player.ele.style.left = player.ele.x+'px';
                 }
                 animationGame = requestAnimationFrame(playGame);
                 if(player.gameEndCounter>0)
