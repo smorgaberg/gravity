@@ -231,8 +231,8 @@ const speedDash = document.querySelector('.speedDash');
                     (aRect.right <bRect.left)||
                     (aRect.left > bRect.right)
                 )
-            }
-            
+            } */
+            /*
             function moveBadGuys(){
                 let tempBaddy = document.querySelectorAll('.baddy');
                 for(let i=0; i<tempBaddy.length; i++)
