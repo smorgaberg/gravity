@@ -143,8 +143,8 @@ const speedDash = document.querySelector('.speedDash');
                         gamma +90;
                         
                         
-                        playerBike.style.top = (maxX*beta/180 + 100) + "px";
-                        playerBike.style.left  = (maxY*gamma/180 + 100) + "px";
+                        playerBike.style.left = (maxX*beta/180 + 100) + "px";
+                        playerBike.style.top  = (maxY*gamma/180 + 100) + "px";
                       
                       
                       
