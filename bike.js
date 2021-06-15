@@ -86,10 +86,10 @@ const speedDash = document.querySelector('.speedDash');
                 btnStart.style.display = "none";
                 var div = document.createElement('div');
                 div.setAttribute('class','playerBike');
-                if(isMobile!=null)//모바일
+                /*if(isMobile!=null)//모바일
                 {div.x = 300;}// 자전거 위치
                 else{div.x=650;}//웹
-                div.y = 500;
+                div.y = 500; */
                 container.appendChild(div);
                 gamePlay = true;
                 animationGame = requestAnimationFrame(playGame);
