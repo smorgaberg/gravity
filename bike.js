@@ -303,7 +303,7 @@ const speedDash = document.querySelector('.speedDash');
         
        }
                 
-                /*if(alpha>5)
+                if(alpha>5)
                 {   if(player.ele.y>400)
                 {player.ele.y -=  1;}
                     player.speed = player.speed <20 ? (player.speed+0.05):20;
@@ -312,15 +312,15 @@ const speedDash = document.querySelector('.speedDash');
                 {   if(player.ele.y<500)
                     {player.ele.y +=  1;}
                     player.speed = player.speed>0?(player.speed-0.2):0;
-                }*/
-               /* if(beta>5)
+                }
+               if(beta>5)
                 {
                     player.ele.x += (player.speed/4);
                 }
                 if(beta<-5)
                 {
                     player.ele.x -= (player.speed/4);
-                } */
+                } 
             //CHECK IF ON ROAD
                 
             if((player.ele.x + 40)<roadPara.left || (player.ele.x)>(roadPara.left + roadPara.width))
