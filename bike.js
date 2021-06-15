@@ -14,9 +14,7 @@ const speedDash = document.querySelector('.speedDash');
             let animationGame; //= requestAnimationFrame(playGame);
             let gamePlay = false;
             let player; 
-            let a;
-            let b;
-            let c;
+          
 
             let keys = {
                 ArrowUp:false,
@@ -117,7 +115,8 @@ const speedDash = document.querySelector('.speedDash');
                 var dataContainerMotion = document.getElementById('dataContainerMotion');
                 var ball = document.getElementById("playerBIke");
                 var garden = document.getElementById("garden");
-                
+                var a;
+                var b;
                 
                 var maxX = garden.clientWidth * 2 - ball.clientWidth;
 			    var maxY = garden.clientHeight * 2- ball.clientHeight;
@@ -298,11 +297,11 @@ const speedDash = document.querySelector('.speedDash');
                 let roadPara=moveRoad();
                 moveBadGuys();
                 
-                if(isMobile!=false){
+               
                 
                             init();
                 
-                }
+                
                 
                 /*if(alpha>5)
                 {   if(player.ele.y>400)
