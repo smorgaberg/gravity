@@ -116,7 +116,7 @@ const speedDash = document.querySelector('.speedDash');
                 var dataContainerOrientation = document.getElementById('dataContainerOrientation');
                 var dataContainerMotion = document.getElementById('dataContainerMotion');
                 var ball = document.getElementById("ball");
-                var garden = document.getElementById("garden")
+                var garden = document.getElementById("garden");
                 
                 
                 var maxX = garden.clientWidth * 2 - ball.clientWidth;
