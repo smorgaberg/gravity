@@ -98,7 +98,7 @@ const speedDash = document.querySelector('.speedDash');
                 animationGame = requestAnimationFrame(playGame);
                 player ={
                     ele:div, 
-                    speed:20, //스피드
+                    speed:10, //스피드
                     lives:10, //생명
                     gameScore:0,
                     carstoPass:0, //차 지나가기
@@ -172,7 +172,7 @@ const speedDash = document.querySelector('.speedDash');
 
 
 
-               function pressKeyOn(event){
+             /*  function pressKeyOn(event){
                 event.preventDefault();
                 //console.log(keys);
                 keys[event.key]=true;
@@ -182,7 +182,7 @@ const speedDash = document.querySelector('.speedDash');
                 //console.log(keys);
                keys[event.key]=false;
             }
-            
+            */
             
             function updateDash(){
                 //console.log(player);
@@ -360,4 +360,3 @@ const speedDash = document.querySelector('.speedDash');
                     }
                 }
             }
-        
