@@ -86,10 +86,10 @@ const speedDash = document.querySelector('.speedDash');
                 btnStart.style.display = "none";
                 var div = document.createElement('div');
                 div.setAttribute('class','playerBike');
-                /*if(isMobile!=null)//모바일
+                if(isMobile!=null)//모바일
                 {div.x = 300;}// 자전거 위치
                 else{div.x=650;}//웹
-                div.y = 500;*/
+                div.y = 500;
                 container.appendChild(div);
                 gamePlay = true;
                 animationGame = requestAnimationFrame(playGame);
@@ -296,7 +296,7 @@ const speedDash = document.querySelector('.speedDash');
                 moveBadGuys();
 
                 init();
-                /*if(keys.ArrowUp)
+                if(keys.ArrowUp)
                 {   if(player.ele.y>400)
                     player.ele.y -=  1;
                     player.speed = player.speed <20 ? (player.speed+0.05):20;
@@ -313,18 +313,18 @@ const speedDash = document.querySelector('.speedDash');
                 if(keys.ArrowLeft)
                 {
                     player.ele.x -= (player.speed/4);
-                }*/
+                }
             //CHECK IF ON ROAD
-            /*    
+                
             if((player.ele.x + 40)<roadPara.left || (player.ele.x)>(roadPara.left + roadPara.width))
                 {   if(player.ele.y <500)player.ele.y += +1;
                     player.speed = player.speed >0?(player.speed-0.2):5;
                     //console.log('OFF ROAD');
-                }*/
+                }
             
                 //move car
-                /*player.ele.style.top = player.ele.y+'px';
-                player.ele.style.left = player.ele.x+'px';*/
+                player.ele.style.top = player.ele.y+'px';
+                player.ele.style.left = player.ele.x+'px';
                 }
                 animationGame = requestAnimationFrame(playGame);
                 if(player.gameEndCounter>0)
