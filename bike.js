@@ -7,9 +7,7 @@ const speedDash = document.querySelector('.speedDash');
             btnStart.addEventListener('click',startGame);
             document.addEventListener('keydown',pressKeyOn);
             document.addEventListener('keyup',pressKeyOff);
-		let a;
-let b;
-let c;
+
             
             
             //Game Variables
@@ -145,14 +143,14 @@ let c;
                         gamma +90;
                         
                         
-                        a= (maxX*beta/180 + 100) + "px";
-                      b = (maxY*gamma/180 + 100) + "px";
+                        playerBike.style.top = (maxX*beta/180 + 100) + "px";
+                        playerBike.style.left  = (maxY*gamma/180 + 100) + "px";
                       
-                      playerBike.style.top = a;
-                      playerBike.style.left = b;
+                      
+                      
 
                         
-                    }, true);
+                    }, false);
                 }
     
                 //가속도에 변화가 발생 할때 
@@ -289,11 +287,11 @@ let c;
            
 
 
-               if(isMobile!=false){
+                if(isMobile!=false){
                 
-                            init();
-                
-               }
+                    init();
+        
+       }
 
 
 
@@ -303,10 +301,6 @@ let c;
                 //movement
                 let roadPara=moveRoad();
                 moveBadGuys();
-                
-               
-                
-                
                 
                 
                 /*if(alpha>5)
