@@ -89,7 +89,7 @@ const speedDash = document.querySelector('.speedDash');
                 /*if(isMobile!=null)//모바일
                 {div.x = 300;}// 자전거 위치
                 else{div.x=650;}//웹
-                div.y = 500; */
+                div.y = 500;*/
                 container.appendChild(div);
                 gamePlay = true;
                 animationGame = requestAnimationFrame(playGame);
@@ -140,7 +140,8 @@ const speedDash = document.querySelector('.speedDash');
                         beta +90;
                         gamma +90;
     
-                        player.ele.style.left = (maxX*beta/180 + 100) + "px";
+                        //player.ele.style.left = (maxX*beta/180 + 100) + "px";
+                        plyerBike.style.left = (maxX*beta/180 + 100) + "px";
                         //player.ele.style.top = (maxY*gamma/180 + 100) + "px";
                         player.speed = 1;
                     }, false);
