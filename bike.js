@@ -295,7 +295,7 @@ const speedDash = document.querySelector('.speedDash');
                 let roadPara=moveRoad();
                 moveBadGuys();
 
-                init();
+              
                 if(keys.ArrowUp)
                 {   if(player.ele.y>400)
                     player.ele.y -=  1;
