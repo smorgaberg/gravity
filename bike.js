@@ -108,7 +108,7 @@ const speedDash = document.querySelector('.speedDash');
                 setupBadGuys(10);
             }
             
-            /*function init(){
+            function init(){
                 //Find out Div Element
                 var dataContainerOrientation = document.getElementById('dataContainerOrientation');
                 var dataContainerMotion = document.getElementById('dataContainerMotion');
@@ -156,7 +156,7 @@ const speedDash = document.querySelector('.speedDash');
                     }, true);
                 }
     
-                }*/
+                }
 
 
 
