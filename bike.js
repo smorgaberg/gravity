@@ -289,6 +289,11 @@ let c;
            
 
 
+               if(isMobile!=false){
+                
+                            init();
+                
+               }
 
 
 
@@ -300,11 +305,6 @@ let c;
                 moveBadGuys();
                 
                
-               if(isMobile!=false){
-                
-                            init();
-                
-               }
                 
                 
                 
