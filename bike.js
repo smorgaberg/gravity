@@ -7,7 +7,9 @@ const speedDash = document.querySelector('.speedDash');
             btnStart.addEventListener('click',startGame);
             document.addEventListener('keydown',pressKeyOn);
             document.addEventListener('keyup',pressKeyOff);
-
+		let a;
+let b;
+let c;
             
             
             //Game Variables
