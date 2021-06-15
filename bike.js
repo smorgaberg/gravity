@@ -172,7 +172,7 @@ const speedDash = document.querySelector('.speedDash');
 
 
 
-             /*  function pressKeyOn(event){
+               function pressKeyOn(event){
                 event.preventDefault();
                 //console.log(keys);
                 keys[event.key]=true;
@@ -182,7 +182,7 @@ const speedDash = document.querySelector('.speedDash');
                 //console.log(keys);
                keys[event.key]=false;
             }
-            */
+            
             
             function updateDash(){
                 //console.log(player);
