@@ -115,7 +115,7 @@ const speedDash = document.querySelector('.speedDash');
                 //Find out Div Element
                 var dataContainerOrientation = document.getElementById('dataContainerOrientation');
                 var dataContainerMotion = document.getElementById('dataContainerMotion');
-                var ball = document.getElementById("ball");
+                var ball = document.getElementById("playerBIke");
                 var garden = document.getElementById("garden");
                 
                 
@@ -147,8 +147,8 @@ const speedDash = document.querySelector('.speedDash');
                         a= (maxX*beta/180 + 100) + "px";
                       b = (maxY*gamma/180 + 100) + "px";
                       
-                      playerBike.ele.top = a;
-                      playerBike.ele.left = b;
+                      playerBike.style.top = a;
+                      playerBike.style.left = b;
 
                         
                     }, true);
