@@ -314,11 +314,12 @@ const speedDash = document.querySelector('.speedDash');
                     player.ele.x -= (player.speed/4);
                 }*/
             //CHECK IF ON ROAD
-                if((player.ele.x + 40)<roadPara.left || (player.ele.x)>(roadPara.left + roadPara.width))
+            /*    
+            if((player.ele.x + 40)<roadPara.left || (player.ele.x)>(roadPara.left + roadPara.width))
                 {   if(player.ele.y <500)player.ele.y += +1;
                     player.speed = player.speed >0?(player.speed-0.2):5;
                     //console.log('OFF ROAD');
-                }
+                }*/
             
                 //move car
                 /*player.ele.style.top = player.ele.y+'px';
