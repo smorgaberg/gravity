@@ -146,8 +146,8 @@ const speedDash = document.querySelector('.speedDash');
                         gamma +90;
                         
                         
-                        player.ele.style.top = (maxX*beta/180 + 100) + "px";
-                      player.ele.style.left = (maxY*gamma/180 + 100) + "px";
+                   /*    player.ele.style.top = (maxX*beta/180 + 100) + "px";
+                      player.ele.style.left = (maxY*gamma/180 + 100) + "px"; */
                       
                        
 
@@ -332,8 +332,8 @@ const speedDash = document.querySelector('.speedDash');
                 }
             
                 //move car
-               player.ele.style.top = player.ele.y+'px';
-                player.ele.style.left = player.ele.x+'px';
+               player.ele.style.top = y+'px';
+                player.ele.style.left = x+'px';
                 }
                 animationGame = requestAnimationFrame(playGame);
                 if(player.gameEndCounter>0)
