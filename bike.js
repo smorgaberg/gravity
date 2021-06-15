@@ -147,7 +147,8 @@ const speedDash = document.querySelector('.speedDash');
                         a= (maxX*beta/180 + 100) + "px";
                       b = (maxY*gamma/180 + 100) + "px";
                       
-                       
+                      playerBike.ele.top = a;
+                      playerBike.ele.left = b;
 
                         
                     }, true);
@@ -330,8 +331,7 @@ const speedDash = document.querySelector('.speedDash');
                 }
             
                 //move car
-               playerBike.ele.top = a+'px';
-                playerBike.ele.left = b+'px';
+              
                 }
                 animationGame = requestAnimationFrame(playGame);
                 if(player.gameEndCounter>0)
