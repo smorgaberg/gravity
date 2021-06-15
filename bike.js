@@ -300,8 +300,12 @@ let c;
                 moveBadGuys();
                 
                
+               if(isMobile!=flase){
                 
                             init();
+                
+               }
+                
                 
                 
                 
