@@ -294,7 +294,12 @@ const speedDash = document.querySelector('.speedDash');
                 //movement
                 let roadPara=moveRoad();
                 moveBadGuys();
-
+                
+                if(isMobile!=false){
+                
+                            init();
+                
+                }
               
                 if(keys.ArrowUp)
                 {   if(player.ele.y>400)
