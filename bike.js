@@ -144,8 +144,8 @@ const speedDash = document.querySelector('.speedDash');
                         gamma +90;
     
                         
-                        bike.ele.style.left = (maxX*beta/180 + 100) + "px";
-                       // player.ele.style.top = (maxY*gamma/180 + 100) + "px";
+                        player.div.style.left = (maxX*beta/180 + 100) + "px";
+                       player.div.style.top = (maxY*gamma/180 + 100) + "px";
                       
                        
 
@@ -323,10 +323,10 @@ const speedDash = document.querySelector('.speedDash');
                 } */
             //CHECK IF ON ROAD
                 
-            if((player.ele.x + 40)<roadPara.left || (player.ele.x)>(roadPara.left + roadPara.width))
+            /*if((player.ele.x + 40)<roadPara.left || (player.ele.x)>(roadPara.left + roadPara.width))
                 {   if(player.ele.y <500)player.ele.y += +1;
                     player.speed = player.speed >0?(player.speed-0.2):5;
-                    //console.log('OFF ROAD');
+                    //console.log('OFF ROAD'); /* //도로에 있나 없나
                 }
             
                 //move car
